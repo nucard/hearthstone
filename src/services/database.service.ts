@@ -37,8 +37,8 @@ export class DatabaseService {
     }
 
     public getExternalInfoProviders(card: NcCard): Promise<NcExternalInfoProvider[]> {
-        const hearthheadName = card.name.replace(/\s/g, '-');
-        const icyVeinsName = card.name.replace(/[^a-zA-Z\d]/g, '-');
+        const hearthheadName = card.name.replace(/\s/g, '-').toLowerCase();
+        const icyVeinsName = card.name.replace(/[^a-zA-Z\d]/g, '-').toLowerCase();
         const icyVeinsFaction = (card.factionId || 'neutral').toLowerCase();
 
         return Promise.resolve([
@@ -50,7 +50,7 @@ export class DatabaseService {
             {
                 name: 'Icy Veins',
                 icon: 'https://i.imgur.com/Q634fnZ.png',
-                url: `https://icy-veins/cards/${icyVeinsFaction}/${icyVeinsName}`,
+                url: `https://icy-veins.com/cards/${icyVeinsFaction}/${icyVeinsName}`,
             },
         ]);
     }
