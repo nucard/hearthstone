@@ -50,7 +50,7 @@ export class DatabaseService {
             {
                 name: 'Icy Veins',
                 icon: 'https://i.imgur.com/Q634fnZ.png',
-                url: `https://icy-veins.com/cards/${icyVeinsFaction}/${icyVeinsName}`,
+                url: `https://icy-veins.com/hearthstone/cards/${icyVeinsFaction}/${icyVeinsName}`,
             },
         ]);
     }
