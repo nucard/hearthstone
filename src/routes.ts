@@ -17,7 +17,7 @@ export class AppRoutes {
                 path: '/card/random',
                 method: 'GET',
                 handler: asyncHandler(async (req, res) => {
-                    const dataService = new DatabaseService(config);
+                    const dataService = await DatabaseService.create(config);
                     const card = await dataService.getRandomCard();
 
                     if (card) {
@@ -32,7 +32,7 @@ export class AppRoutes {
                 path: '/card/:cardId',
                 method: 'GET',
                 handler: asyncHandler(async (req, res) => {
-                    const dataService = new DatabaseService(config);
+                    const dataService = await DatabaseService.create(config);
                     const card = await dataService.getCard(req.params.cardId);
 
                     if (card) {
@@ -48,7 +48,7 @@ export class AppRoutes {
                 path: '/cards/search/:query',
                 method: 'GET',
                 handler: asyncHandler(async (req, res) => {
-                    const dataService = new DatabaseService(config);
+                    const dataService = await DatabaseService.create(config);
                     const results = await dataService.search(req.params.query);
 
                     if (results) {
@@ -64,7 +64,7 @@ export class AppRoutes {
                 path: '/external-info-providers/:cardId',
                 method: 'GET',
                 handler: asyncHandler(async (req, res) => {
-                    const dataService = new DatabaseService(config);
+                    const dataService = await DatabaseService.create(config);
                     const card = await dataService.getCard(req.params.cardId);
 
                     if (!card) {
@@ -81,7 +81,7 @@ export class AppRoutes {
                 path: '/factions',
                 method: 'GET',
                 handler: asyncHandler(async (req, res) => {
-                    const dataService = new DatabaseService(config);
+                    const dataService = await DatabaseService.create(config);
                     const factions = await dataService.getFactions();
 
                     res.type('application/json');
